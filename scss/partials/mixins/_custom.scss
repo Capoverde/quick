@@ -1,0 +1,163 @@
+//#2.
+// ++++++++++++++++++ custom ++++++++++++++++++ //
+
+// - font-weights - //
+$fontWeights: (
+  thin: 100,
+  thin-italic: 100i,
+  extra-light: 200,
+  exta-light-italic: 200i,
+  light: 300,
+  light-italic: 300i,
+  regular: 400,
+  regular-italic: 400i,
+  medium: 500,
+  medium-italc: 500i,
+  semi-bold: 600,
+  semi-bold-italic: 600i,
+  bold: 700,
+  bold-italic: 700i,
+  extra-bold: 800,
+  extra-bold-italic: 800i,
+  black: 900,
+  black-italic: 900i
+);
+
+@function weight($weight) {
+  @return map-get($fontWeights, $weight);
+}
+
+// - transition - //
+@mixin transition($property, $duration) {
+  -webkit-transition: $property $duration;
+  -moz-transition: $property $duration;
+  -ms-transition: $property $duration;
+  -o-transition: $property $duration;
+  transition: $property $duration;
+}
+
+// @mixin transition-prop($property, $duration, $ease: ease-in-out, $delay: 0) {
+//   -webkit-transition: $property $duration $ease $delay;
+//   -moz-transition: $property $duration $ease $delay;
+//   -ms-transition: $property $duration $ease $delay;
+//   -o-transition: $property $duration $ease $delay;
+//   transition: $property $duration $ease $delay;
+// }
+
+// — link hover — //
+@mixin link-hover($property, $duration, $color) {
+  &:hover {
+    @include transition($property, $duration);
+    color: $color;
+  }
+}
+
+//  z-index
+$z-index: (
+  modal: 200,
+  navigation: 100,
+  footer: 90,
+  triangle: 60,
+  navigation-rainbow: 50,
+  share-type: 41,
+  share: 40
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
+
+@mixin position($pos) {
+  @if $pos == "absolute" {
+    position: absolute;
+  }
+  @if $pos == "relative" {
+    position: relative;
+  }
+  @if $pos == "fixed" {
+    -webkit-position: fixed;
+    position: fixed;
+  }
+  @if $pos == "sticky" {
+    -webkit-position: sticky;
+    position: sticky;
+  }
+}
+// Define vertical, horizontal, or both position
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == "vertical" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position == "horizontal" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  } @else if $position == "both" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Using the mixin
+
+//.foo {
+//@include center(both);
+//}
+
+//.foo-parent {
+//position: relative;
+//}
+
+@mixin flexCenter($device) {
+  @if ($device == "desktop") {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @if ($device == "mobile") {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap column;
+  }
+}
+
+// 4 - Fullscreen Background Image
+// --------------------------------
+@mixin bg-cover($url) {
+  background: url($url) no-repeat center center fixed;
+  background-size: cover;
+}
+// 5 - Full Width/Height and Centered Image
+// -------------------------------------------
+
+// Position an image within it's parent element so that it
+// takes up the full height and width of the parent element, and
+
+// is positioned with its center in the middle
+@mixin img-cover {
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+// square:
+@mixin square($value: 100px) {
+  width: $value;
+  height: $value;
+}

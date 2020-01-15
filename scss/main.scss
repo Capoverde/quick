@@ -1,0 +1,12 @@
+@import "./settings/normalize";
+@import "./partials/mixins/rwd";
+@import "./partials/mixins/prefixes";
+@import "./partials/mixins/custom";
+
+@import "./settings/globals";
+@import "./partials/header/header";
+@import "./partials/sections/section1";
+@import "./partials/sections/section2";
+@import "./partials/sections/section3";
+@import "./partials/sections/section4";
+@import "./partials/footer/footer";

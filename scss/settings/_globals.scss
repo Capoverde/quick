@@ -1,0 +1,80 @@
+// -------------- fonts -------------- //
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin-ext");
+// -------------- variables -------------- //
+// backgrounds:
+$body-bg: #161616;
+$header-bg: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+
+// colors:
+$main-c: #dddddd;
+$hero-c: #ffc600;
+$btn-border-c: $main-c;
+
+// ------------- settings -------------- //
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background: $body-bg;
+  min-height: 100vh;
+  @include antialiasing;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  @include flexCenter(mobile);
+  width: 100%;
+  height: 40vh;
+  background: $header-bg;
+  color: $main-c;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h1 {
+  letter-spacing: 15px;
+  @include fluidSize(30px, 100px);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  @include link-hover(color, 0.3s, #681212);
+  @include text-shadow();
+}
+
+.btn {
+  padding: 10px 55px;
+  color: $main-c;
+  border: 2px solid $btn-border-c;
+  @include border-radius(28px);
+  @include fluidSize(13px, 20px);
+  @include link-hover(all, 0.3s, #681212);
+  letter-spacing: 5px;
+
+  &:hover {
+    @include scale(0.97);
+  }
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+
+  &:nth-child(odd) {
+    background: lighten($body-bg, 20);
+  }
+}
+
+footer {
+  width: 100%;
+  background: #000;
+  height: 40vh;
+}
