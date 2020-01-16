@@ -352,6 +352,7 @@ body {
 }
 
 body {
+  position: relative;
   background: #161616;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -419,10 +420,10 @@ a:hover {
   padding: 10px 55px;
   color: #dddddd;
   border: 2px solid #dddddd;
+  letter-spacing: 5px;
   border-radius: 28px;
   background-clip: padding-box;
   font-size: calc( 13px + 7 * ( (100vw - 320px) / 1600 ));
-  letter-spacing: 5px;
 }
 
 @media screen and (max-width: 320px) {
@@ -457,8 +458,64 @@ section:nth-child(odd) {
   background: #494949;
 }
 
+section span {
+  display: block;
+  font-size: 10rem;
+  text-align: center;
+}
+
 footer {
   width: 100%;
   background: #000;
   height: 40vh;
+}
+
+#totop {
+  position: fixed;
+  bottom: 10%;
+  right: -50%;
+  color: #dddddd;
+  font-size: 1.5rem;
+  background: #e6b200;
+  border: 3px solid #dddddd;
+  outline: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: wrap column;
+          flex-flow: wrap column;
+  width: 30px;
+  height: 30px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-clip: padding-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+#totop:hover {
+  background: #ffcc1a;
+}
+
+#totop.showTop {
+  right: 10%;
+}
+
+nav {
+  position: fixed;
+}
+
+nav ul li {
+  color: #dddddd;
 }

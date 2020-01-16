@@ -18,6 +18,7 @@ body {
 }
 
 body {
+  position: relative;
   background: $body-bg;
   min-height: 100vh;
   @include antialiasing;
@@ -54,10 +55,10 @@ a {
   padding: 10px 55px;
   color: $main-c;
   border: 2px solid $btn-border-c;
+  letter-spacing: 5px;
   @include border-radius(28px);
   @include fluidSize(13px, 20px);
   @include link-hover(all, 0.3s, #681212);
-  letter-spacing: 5px;
 
   &:hover {
     @include scale(0.97);
@@ -71,10 +72,42 @@ section {
   &:nth-child(odd) {
     background: lighten($body-bg, 20);
   }
+
+  span {
+    display: block;
+    font-size: 10rem;
+    text-align: center;
+  }
 }
 
 footer {
   width: 100%;
   background: #000;
   height: 40vh;
+}
+
+// ---------- totop --------- //
+#totop {
+  position: fixed;
+  bottom: 10%;
+  right: -50%;
+  color: $main-c;
+  font-size: 1.5rem;
+  background: darken($hero-c, 5);
+  border: 3px solid $main-c;
+  outline: none;
+  @include flexCenter(mobile);
+  @include square(30px);
+  @include translate(-50%, -50%);
+  @include border-radius(50%);
+  @include transition(all, 0.3s);
+  @include drop-shadow(0, 1px, 2px, 3px, 0.25);
+
+  &:hover {
+    background: lighten($hero-c, 5);
+  }
+}
+
+#totop.showTop {
+  right: 10%;
 }
